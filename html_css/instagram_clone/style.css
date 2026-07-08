@@ -49,8 +49,43 @@
     /* background-color: yellow; */
 }
 
+.post .story{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
 .post .story .items {
     display: flex;
+    justify-content: center;
+    align-items:center;
+    margin:10px;
+    font-size: 12px;
+    font-weight: 200;
+}
+
+.post .story .items .profile{
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ flex-direction: column;
+}
+
+.post .story .items .profile .img{
+border-radius: 50%;
+display: inline-block;
+padding: 2%;
+background-image: conic-gradient(#feda75, #fe7e1e, #d62976, #962fbf, #4f5bd5,#feda75);
+}
+
+.post .story .items .profile .img img{
+height: 60px;
+width: 60px;
+border-radius: 50%;
+object-fit: cover;
+display: block;
+/* padding: 3px; */
 }
 
 .suggestion_section {
