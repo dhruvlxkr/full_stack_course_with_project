@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+    color: white;
+}
+
+.instragram {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    /*justify-content: space-between;
+    gap: 20px;
+    padding: 10px 20px; */
+
+}
+
+.left-bar {
+    width: 18%;
+    height: 100vh;
+    border-right: 1px solid #333
+        /* background-color: blue; */
+}
+
+#logo {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Lobster', cursive;
+}
+
+.left-bar .items {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 12px;
+    font-size: 16px;
+    margin: 12px;
+}
+
+.left-bar .items .material-symbols-outlined {
+    font-size: 27px;
+    margin-right: 20px;
+}
+
+.post {
+    width: 57%;
+    height: 100vh;
+    /* background-color: yellow; */
+}
+
+.post .story .items {
+    display: flex;
+}
+
+.suggestion_section {
+    width: 25%;
+    height: 100vh;
+    border-left: 1px solid #333
+        /* background-color: red; */
+}
