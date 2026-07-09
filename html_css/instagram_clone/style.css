@@ -4,6 +4,7 @@
     box-sizing: border-box;
     background-color: black;
     color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .instragram {
@@ -36,6 +37,7 @@
     padding: 12px;
     font-size: 16px;
     margin: 12px;
+    cursor: pointer;
 }
 
 .left-bar .items .material-symbols-outlined {
@@ -49,7 +51,7 @@
     /* background-color: yellow; */
 }
 
-.post .story{
+.post .story {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,38 +61,137 @@
 .post .story .items {
     display: flex;
     justify-content: center;
-    align-items:center;
-    margin:10px;
+    align-items: center;
+    margin: 10px;
     font-size: 12px;
     font-weight: 200;
 }
 
-.post .story .items .profile{
- display:flex;
- justify-content:center;
- align-items:center;
- flex-direction: column;
+.post .story .items .profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.post .story .items .profile .img{
-border-radius: 50%;
-display: inline-block;
-padding: 2%;
-background-image: conic-gradient(#feda75, #fe7e1e, #d62976, #962fbf, #4f5bd5,#feda75);
+.post .story .items .profile .img {
+    border-radius: 50%;
+    display: inline-block;
+    padding: 2%;
+    background-image: conic-gradient(#feda75, #fe7e1e, #d62976, #962fbf, #4f5bd5, #feda75);
 }
 
-.post .story .items .profile .img img{
-height: 60px;
-width: 60px;
-border-radius: 50%;
-object-fit: cover;
-display: block;
-/* padding: 3px; */
+.post .story .items .profile .img img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    /* padding: 3px; */
+}
+
+.post .main-post {
+    height: 75vh;
+    width: 70%;
+    margin: auto;
+}
+
+.post .main-post .profile {
+    margin: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.post .main-post .profile img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    padding: 2px;
+    box-sizing: border-box;
+    display: inline-block;
+    background-image: conic-gradient(#feda75, #fe7e1e, #d62976, #962fbf, #4f5bd5, #feda75);
+}
+
+.post .main-post .post-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post .main-post .post-img img {
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+
+}
+
+.post .main-post .post-engagements {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.post .main-post .post-engagements .material-symbols-outlined {
+    font-size: 2rem;
+}
+
+.post .main-post .post-engagements .left {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
 
 .suggestion_section {
     width: 25%;
     height: 100vh;
-    border-left: 1px solid #333
-        /* background-color: red; */
+    border-left: 1px solid #333;
+    /* background-color: red; */
+}
+
+/* .suggestion_section .m {
+    margin: 150px 0px 0px 0px;
+
+} */
+
+.suggestion_section .suggestion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.suggestion_section .suggestion .profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.suggestion_section .suggestion .profile .img img {
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+}
+
+.suggestion_section .suggestion .follow {
+    color: blue;
+    font-weight: 700;
+}
+
+.suggestion_section .suggestion .profile p {
+    color: #bcbab7;
+}
+
+.suggestion_section .suggestion .see {
+    color: white;
+}
+
+.m {
+    margin-top: 40px;
 }
