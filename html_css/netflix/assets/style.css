@@ -12,6 +12,7 @@
     --color-red:red;
     --color-border:rgba(255,255,255,0.4);
 
+     --dark-overlay-color:rgba(0,0,0,0.65);
     --font-xs:0.875rem;
     --font-sm:1rem;
     --font-md:1.2rem;
@@ -43,4 +44,48 @@ body{
     position: relative;
     display: flex;
     flex-direction: column;
+}
+
+.overlay{
+    position: absolute;
+    background-color: var(--dark-overlay-color);
+    width: 100%;
+   top: 0;
+   left:0;
+   z-index: 1;
+
+}
+
+.navbar{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:1.3rem 5%
+}
+
+.navbar-logo img{
+    width: 130px;
+}
+
+.navbar-btn{
+    display: flex;
+    gap: 10px;
+}
+
+.btn{
+    padding: var(--padding-btn);
+    font-size: var(--font-xs);
+    border-radius: var(--border-radius);
+    border:1px solid var(--color-white);
+    background-color:var(--color-light-bg);
+    color:var(--color-white);
+    cursor: pointer;
+}
+
+.btn-signin{
+    background-color: var(--color-red);
+    border:none;
+    font-weight: 500;
 }
