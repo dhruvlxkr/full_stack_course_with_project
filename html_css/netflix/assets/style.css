@@ -194,3 +194,70 @@ body {
 .reverse {
     flex-direction: row-reverse;
 }
+
+.faq-section {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: var(--padding-section);
+    text-align: center;
+}
+
+.faq-section h2 {
+    font-size: var(--font-xl);
+    margin-bottom: 30px;
+}
+
+.faq-box {
+    background-color: var(--color-box);
+    margin: 10px auto;
+    max-width: 1000px;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--font-md);
+    cursor: pointer;
+    transition: background 0.3s;
+
+}
+
+.faq-box:hover {
+    background-color: var(--color-box-hover);
+}
+
+.faq-box svg {
+    filter: invert(1);
+}
+
+.footer {
+    padding: var(--padding-section);
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.footer-contact {
+    margin-bottom: 30px;
+    font-size: var(--font-sm);
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: var(--font-sm);
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
