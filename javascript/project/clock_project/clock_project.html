@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock Project</title>
+
+    <style>
+        .clockdiv {
+            background-color: lightgray;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            width: 500px;
+            margin: 300px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clockdiv">
+        <h1 id="dateandtime">00:00:00</h1>
+    </div>
+
+    <audio src="./dragon-studio-clock-ticking-sfx-467486.mp3" preload="auto" id="clocksound"></audio>
+
+
+</body>
+
+</html>
+<script>
+
+    setInterval(() => {
+        let date = new Date;
+        let option = {
+            timeZone: 'Asia/Kolkata',
+            weekday: 'long',
+            day: 'numeric',
+            month: 'long',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true,
+
+        }
+        let time = document.getElementById('dateandtime').innerHTML = date.toLocaleTimeString('en-US', option);
+        let clocksound = document.getElementById('clocksound').play();
+
+
+    }, 1000);
+
+</script>
