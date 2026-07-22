@@ -40,8 +40,19 @@
 
 <script>
     let img = document.querySelector('img');
-    let h2 =
-        img.src = './img/Jeans_category_section_e350d6f26c.jpg';
+    let h2 = document.querySelector('h2');
+
+    img.addEventListener('mouseenter', () => {
+        img.src = "./img/Jeans_category_section_e350d6f26c.jpg";
+        h2.innerText = "Jeans";
+    })
+
+
+    img.addEventListener('mouseleave', () => {
+        img.src = "./img/baked_clay_linen_textured_shirt_base_400x533.jpg";
+        h2.innerText = "Shirt";
+    });
+
 
 </script>
 
