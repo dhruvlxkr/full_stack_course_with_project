@@ -16,6 +16,7 @@ import Contact from './pages/Contact'
 import Course from './pages/Course'
 import Team from './pages/Team'
 import Course_detail from './pages/Course_detail'
+import Navigation from './components/Navigation'
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
     {/* <Multi_form_handle></Multi_form_handle> */}
 
     <Router>
+      <Navigation></Navigation>
       <Routes>
         <Route path='/' element={<Home></Home>} />
         <Route path='/About' element={<About></About>} />
