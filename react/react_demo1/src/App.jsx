@@ -17,8 +17,12 @@ import Course from './pages/Course'
 import Team from './pages/Team'
 import Course_detail from './pages/Course_detail'
 import Navigation from './components/Navigation'
+import Dashboard from './pages/Dashboard'
+import Profile from './pages/Profile'
+import Indiangov from './home/Indiangov'
 
 const App = () => {
+  let money = 1000
   return (
     <>
     {/* <Test brand='lanova'></Test> */}
@@ -30,7 +34,7 @@ const App = () => {
     {/* <Fetch_Data_Api></Fetch_Data_Api> */}
     {/* <Formhandling></Formhandling> */}
     {/* <Multi_form_handle></Multi_form_handle> */}
-
+    
     <Router>
       <Navigation></Navigation>
       <Routes>
@@ -40,7 +44,10 @@ const App = () => {
         <Route path='/Course' element={<Course></Course>} />
         <Route path='/Team' element={<Team></Team>} />
         <Route path='/Course_detail/:id' element={<Course_detail></Course_detail>} />
-        </Routes>
+        <Route path='/Dashboard' element={<Dashboard></Dashboard>} />
+        <Route path='/Profile' element={<Profile></Profile>} />
+        <Route path='/Indiangov' element={<Indiangov money={money}></Indiangov>} />
+      </Routes>
     </Router>
     </>
   )
