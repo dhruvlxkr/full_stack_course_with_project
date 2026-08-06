@@ -1,0 +1,144 @@
+
+*{
+    box-sizing:border-box;
+    font-family: "Roboto", sans-serif;
+    padding:0;
+    margin:0;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 12px 8%;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap: 48px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#1b0238;
+    font-weight:600;
+}
+
+nav div{
+    display:flex;
+    align-items:center;
+    gap: 24px;
+}
+
+nav div a{
+    text-decoration:none;
+    color:#1b0238;
+    font-weight:600;
+}
+
+nav div button{
+    border:none;
+    background-color:#ea512e;
+    color:white;
+    padding: 16px 38px;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:600;
+}
+nav ul li #homelink{
+    color:#ea512e;
+}
+
+nav ul li .links:hover{
+    color:#ea512e;
+}
+
+nav ul li .links:active{
+    color:#ea512e;
+}
+
+
+nav ul li .links:focus{
+    color:#ea512e;
+}
+
+.hero{
+    height:700px;
+    background-color:#F1E7FF;
+    display:flex;
+    overflow:hidden;
+    align-items:center;
+}
+
+.hero .header{
+    width:60%
+}
+
+.hero .circle{
+    width:40%;
+    height:900px;
+    background-color:#FEF8F8;
+    border-radius: 50% 0% 0 50%;
+}
+
+.hero .circle img{
+    width:680px
+}
+
+.toolbar{
+    display:none;
+}
+
+.toolbar span{
+    font-size:40px;
+}
+.toggler{
+    position:relative;
+}
+.toggler a{
+    font-size:16px;
+      padding: 16px;
+}
+
+.toggler .dropdownmenu{
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    width:250px;
+    background-color:white;
+    top:53px;
+    right:0;
+    align-items:start;
+    gap: 0px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.1);
+}
+
+.toggler .dropdownmenu a:hover{
+    background-color:#ea512e;
+    width:100%;
+    color:white
+}
+
+.toggler:hover .dropdownmenu{
+    display:flex;
+}
+
+@media screen and (max-width: 768px){
+    .toolbar{
+        display:flex;
+    }
+    .tool-button{
+        display:none;
+    }
+
+     nav ul{
+        display:none;
+    }
+    nav{
+        padding: 12px 2%;
+    }
+    nav img{
+        width: 100px;
+    }
+}
