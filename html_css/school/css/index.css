@@ -64,7 +64,7 @@ nav ul li .links:focus{
 }
 
 .hero{
-    height:700px;
+    height:800px;
     background-color:#F1E7FF;
     display:flex;
     overflow:hidden;
@@ -84,12 +84,100 @@ nav ul li .links:focus{
 }
 
 .hero .circle .girl-poster{
-    width:680px;
+    width:900px;
     position:absolute;
-    bottom:10px;
+    bottom:-20px;
     right:80px;
 
 }
+
+.hero .header{
+    display:flex;
+    justify-content:center; 
+    /* align-items:center; */
+    flex-direction:column;
+    padding-left: 8%;
+    position: relative;
+     align-self:stretch;
+}
+
+.hero .header h6{
+    color:#EA512E;
+    font-size:18px;
+}
+
+.hero .header h1{
+    font-size:60px;
+    color:#1F003E;
+    margin: 15px 0;
+}
+
+.hero .header p{
+    color:gray;
+    margin: 30px 0;
+    padding-right: 30%;
+}
+
+.hero .header .lernmore-btn{
+    border: none;
+    padding: 12px 35px;
+    border-radius:10px;
+    background-color: #EA512E;
+    color:white;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.hero .header .findout-btn{
+    border: none;
+    padding: 12px 35px;
+    border-radius:10px;
+    background-color: #f5890d;
+    color:white;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.hero .header .toolbarbtns{
+    display: flex;
+    gap: 16px;
+}
+
+.hero .header .banner-1{
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    width: 100px;
+    animation: move 3s infinite linear alternate;
+}
+
+.hero .header .banner-2{
+    position: absolute;
+    top: 20px;
+    right: 50px;
+     width: 100px;
+     animation: move2 3s infinite linear alternate;
+}
+
+
+.hero .header .banner-3{
+    position: absolute;
+    bottom: 100px;
+    left: 50px;
+     width: 100px;
+     animation: move 3s infinite linear alternate;
+}
+
+
+.hero .header .banner-4{
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+     width: 100px;
+     animation: move3 3s infinite linear alternate;
+}
+
+
 
 .cloud{
    position:absolute;
@@ -133,8 +221,75 @@ nav ul li .links:focus{
 .toggler:hover .dropdownmenu{
     display:flex;
 }
+.child-section{
+    padding: 100px 10%;
+    display: flex;
+    gap: 24px;
+}
 
-@media screen and (max-width: 768px){
+.child-section .title{
+    font-size: 40px;
+    color: #1B0238;
+}
+.child-section .desc{
+    color: #83708C;
+    line-height: 30px;
+}
+
+.child-section .list-box{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 150px;
+    margin-bottom: 40px;
+}
+
+
+.child-section .list-box button{
+   background-color: #ea512e;
+   color: white;
+   border: none;
+   width: 32px;
+   height: 32px;
+   border-radius: 50%;
+   font-weight: 700;
+}
+
+.child-section .list-box span{
+    color: #83708C;
+}
+
+.whowearechild{
+    width: 596px;
+    height: 596px;
+    border-radius: 50%;
+}
+@keyframes move {
+     0% {
+        left: 50px;
+     }
+     100%{
+        left:70px;
+     }
+}
+
+@keyframes move2 {
+     0% {
+        right: 50px;
+     }
+     100%{
+        right:70px;
+     }
+}
+
+@keyframes move3 {
+     0% {
+        bottom: 50px;
+     }
+     100%{
+        bottom: 70px;
+     }
+}
+@media screen and (max-width: 996px){
     .toolbar{
         display:flex;
     }
@@ -150,5 +305,55 @@ nav ul li .links:focus{
     }
     nav img{
         width: 100px;
+    }  
+    
+    .hero{
+        flex-direction :column;
     }
+
+    .hero .header{
+     flex-direction :column;
+    }
+     .hero .circle{
+        background-color: transparent;
+        /* border: 1px solid gray; */
+        width: 100%;
+    }
+
+    .hero .cloud{
+        display: none;
+    }
+    
+    .hero .circle .girl-poster{
+        width: 580px;
+    } 
+
+    .hero .banner-1,.hero .banner-2,.hero .banner-3,.hero .banner-4{
+        display: none;
+    }
+
+    .hero .header{
+        width: 100%;
+        align-items: center;
+        /* text-align: center; */
+        /* border: 1px solid red; */
+        padding: 24px;
+    }
+    
+    .hero .header h1, .hero .header h6{
+        margin: 0;
+    }
+
+    .hero .header h1{
+        font-size: 34px;
+        margin-top: 20px;
+    }
+
+    .hero .header p{
+        text-align: center;
+    }
+    .hero .header p{
+        padding-right: 0;
+    }
+   
 }
