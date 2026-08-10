@@ -245,6 +245,7 @@ nav ul li .links:focus {
     display: flex;
     align-items: center;
     gap: 48px;
+     position: relative;
 }
 
 .child-section>div {
@@ -301,6 +302,27 @@ nav ul li .links:focus {
     font-weight: 500;
 }
 
+.child-section .readmore{
+    border:none;
+    background-color: #ea512e;
+    padding: 16px 32px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+
+}
+
+.child-section .whoweareshap{
+    position: absolute;
+    top: 1px;
+    right: 0px;
+    width: 80px;
+    animation: move2 3s infinite linear alternate;
+    
+}
+
+
 .whowearechild {
     width: 100%;
     max-width: 480px;
@@ -310,6 +332,13 @@ nav ul li .links:focus {
     object-fit: cover;
     display: block;
     margin: 0 auto;
+}
+
+.child-section .whowearecontainer h6{
+      font-family: "Sacramento", cursive;
+        font-weight: 700;
+        font-style: normal;
+            font-size: 20px;
 }
 
 @keyframes move {
@@ -372,6 +401,9 @@ nav ul li .links:focus {
     }
 
     nav ul {
+        display: none;
+    }
+    .whoweareshap{
         display: none;
     }
 
