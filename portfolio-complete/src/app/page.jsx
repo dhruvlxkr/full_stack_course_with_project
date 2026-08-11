@@ -16,6 +16,8 @@ import CustomCursor from '../components/CustomCursor.jsx'
 import Analytics from '../components/Analytics.jsx'
 import { SoundProvider } from '../components/SoundProvider.jsx'
 import { VoiceProvider } from '../components/VoiceProvider.jsx'
+import WhatsAppButton from '../components/WhatsAppButton.jsx'
+import KonamiEasterEgg from '../components/KonamiEasterEgg.jsx'
 
 const PROFILE_PHOTO = 'https://dharmendralaxkar.vercel.app/img/dharmendra%20laxkar1.png'
 
@@ -65,6 +67,8 @@ export default function Page() {
           </main>
           <Footer />
           <FloatingPortrait src={PROFILE_PHOTO} />
+          <WhatsAppButton />
+          <KonamiEasterEgg />
         </div>
       </VoiceProvider>
     </SoundProvider>

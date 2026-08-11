@@ -1,15 +1,17 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion'
 import { Github, Linkedin, Instagram, Mail } from 'lucide-react'
 import { useSound } from './SoundProvider.jsx'
+import { useVoice } from './VoiceProvider.jsx'
 
 const SOCIALS = [
-  { icon: Linkedin, href: 'https://www.linkedin.com/in/dharmendralxkr/', label: 'LinkedIn', angle: 200 },
-  { icon: Github, href: 'https://github.com/dharmendralxkr', label: 'GitHub', angle: 160 },
-  { icon: Instagram, href: 'https://www.instagram.com/dharmendralxkr/', label: 'Instagram', angle: 120 },
-  { icon: Mail, href: 'mailto:dharmendralxkr@gmail.com', label: 'Email', angle: 80 },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/dharmendralxkr/', label: 'LinkedIn', angle: 175 },
+  { icon: Github, href: 'https://github.com/dharmendralxkr', label: 'GitHub', angle: 152 },
+  { icon: Instagram, href: 'https://www.instagram.com/dharmendralxkr/', label: 'Instagram', angle: 128 },
+  { icon: Mail, href: 'mailto:dharmendralxkr@gmail.com', label: 'Email', angle: 105 },
 ]
 
 const RADIUS = 76
@@ -18,6 +20,7 @@ export default function FloatingPortrait({ src }) {
   const [visible, setVisible] = useState(false)
   const [open, setOpen] = useState(false)
   const { play } = useSound()
+  const { speaking } = useVoice()
 
   const mx = useMotionValue(0)
   const my = useMotionValue(0)
@@ -105,15 +108,15 @@ export default function FloatingPortrait({ src }) {
               className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full"
             >
               <div
-                className="absolute -inset-1 rounded-full animate-[spin_6s_linear_infinite]"
+                className="absolute -inset-1 rounded-full"
                 style={{
                   background:
                     'conic-gradient(from 0deg, var(--accent), transparent 35%, var(--accent2), transparent 75%, var(--accent))',
+                  animation: `spin ${speaking ? '2s' : '6s'} linear infinite`,
                 }}
               />
               <div className="absolute inset-[3px] rounded-full overflow-hidden border-2" style={{ borderColor: 'var(--bg1)' }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={src} alt="" className="w-full h-full object-cover" draggable="false" />
+                <Image src={src} alt="" fill sizes="64px" className="object-cover" draggable="false" />
               </div>
               {/* small + / x indicator */}
               <div

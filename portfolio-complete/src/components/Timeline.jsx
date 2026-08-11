@@ -19,9 +19,12 @@ const LOG = [
 ]
 
 export default function Timeline() {
-  const ref = useSpeakOnView('Section: Signal log. Professional experience at BeYoung Folk and Dacnis Tech Solution.', 'timeline')
+  const ref = useSpeakOnView(
+    "Here's where I've actually worked, and what I've been doing there.",
+    'timeline',
+  )
   return (
-    <section id="log" ref={ref} className="relative py-24 md:py-28 px-5 sm:px-6">
+    <section id="log" ref={ref} className="relative py-24 md:py-28 px-5 sm:px-6 scroll-mt-20">
       <div className="max-w-3xl mx-auto">
         <Reveal>
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-4">

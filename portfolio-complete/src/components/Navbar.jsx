@@ -4,7 +4,9 @@ import { useEffect, useState } from 'react'
 import DayNightToggle from './DayNightToggle.jsx'
 import SoundToggle from './SoundToggle.jsx'
 import VoiceToggle from './VoiceToggle.jsx'
+import VoiceWaveform from './VoiceWaveform.jsx'
 import { useSound } from './SoundProvider.jsx'
+import { useVoice } from './VoiceProvider.jsx'
 
 const LINKS = [
   { id: 'about', label: 'about' },
@@ -17,6 +19,7 @@ const LINKS = [
 export default function Navbar({ theme, setTheme }) {
   const [scrolled, setScrolled] = useState(false)
   const { play } = useSound()
+  const { stop } = useVoice()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -54,6 +57,7 @@ export default function Navbar({ theme, setTheme }) {
               <button
                 onClick={() => {
                   play('click')
+                  stop()
                   scrollTo(link.id)
                 }}
                 onMouseEnter={() => play('hover')}
@@ -66,6 +70,7 @@ export default function Navbar({ theme, setTheme }) {
         </ul>
 
         <div className="flex items-center gap-3 sm:gap-4">
+          <VoiceWaveform />
           <VoiceToggle />
           <SoundToggle />
           <DayNightToggle theme={theme} setTheme={setTheme} />

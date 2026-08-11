@@ -49,6 +49,10 @@ export default function Hero({ theme }) {
         className="relative z-10 w-full max-w-6xl px-5 sm:px-6 grid md:grid-cols-[1.15fr_0.85fr] gap-10 md:gap-10 items-center"
       >
         <motion.div style={{ y, scale }} className="text-center md:text-left order-2 md:order-1">
+          {/* Always in the DOM for SEO/accessibility — the animated version below is purely decorative */}
+          <h1 className="sr-only">Dharmendra Laxkar — PHP, Laravel &amp; Full-Stack Developer</h1>
+          <p className="sr-only">ERP &amp; CRM Systems · React · Next.js · Node.js</p>
+
           <div className="font-mono text-[11px] sm:text-sm text-[var(--accent)] space-y-1 mb-6 h-16">
             {!bootDone && (
               <TypingText
@@ -64,7 +68,10 @@ export default function Hero({ theme }) {
 
           {bootDone && (
             <>
-              <h1 className="font-display font-black uppercase leading-[0.95] text-[clamp(2.4rem,11vw,4.8rem)] md:text-[clamp(2.8rem,4.4vw,5.2rem)] text-[var(--text)] break-words">
+              <div
+                aria-hidden="true"
+                className="font-display font-black uppercase leading-[0.95] text-[clamp(2.4rem,11vw,4.8rem)] md:text-[clamp(2.8rem,4.4vw,5.2rem)] text-[var(--text)] break-words"
+              >
                 <TypingText text="DHARMENDRA" speed={70} startDelay={100} cursorClassName="border-[var(--text)]" />
                 <br />
                 <span className="text-[var(--accent)] glow-text">
@@ -75,14 +82,23 @@ export default function Hero({ theme }) {
                     cursorClassName="border-[var(--accent)]"
                     onDone={() => {
                       setNameDone(true)
+                      const hour = new Date().getHours()
+                      const timeLine =
+                        hour < 5
+                          ? "Still exploring portfolios this late? Welcome."
+                          : hour < 12
+                            ? 'Good morning, and welcome.'
+                            : hour < 18
+                              ? 'Welcome.'
+                              : 'Good evening, and welcome.'
                       speak(
-                        'Welcome. I am Dharmendra Laxkar, a P H P, Laravel, and full stack developer.',
+                        `${timeLine} I'm Dharmendra Laxkar, a P H P, Laravel, and full stack developer.`,
                         { key: 'hero-welcome' },
                       )
                     }}
                   />
                 </span>
-              </h1>
+              </div>
 
               {nameDone && (
                 <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>

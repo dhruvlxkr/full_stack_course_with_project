@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+import Image from 'next/image'
 import { motion, useMotionValue, useSpring, useTransform, useScroll } from 'framer-motion'
 
 export default function ProfilePortrait({ src, sectionRef }) {
@@ -74,8 +75,15 @@ export default function ProfilePortrait({ src, sectionRef }) {
             }}
             className="absolute inset-0 rounded-[1.75rem] overflow-hidden border"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={src} alt="Dharmendra Laxkar" className="w-full h-full object-cover" draggable="false" />
+            <Image
+              src={src}
+              alt="Dharmendra Laxkar"
+              fill
+              priority
+              sizes="(max-width: 640px) 300px, 380px"
+              className="object-cover"
+              draggable="false"
+            />
             <div
               className="absolute inset-0"
               style={{

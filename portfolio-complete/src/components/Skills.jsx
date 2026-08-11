@@ -71,11 +71,11 @@ function SkillCard({ skill }) {
 
 export default function Skills() {
   const ref = useSpeakOnView(
-    'Section: System status. Core skills include P H P, Laravel, React, Next js, and Node js.',
+    "Laravel is where I spend most of my time, but my stack goes well beyond just P H P.",
     'skills',
   )
   return (
-    <section id="skills" ref={ref} className="relative py-24 md:py-28 px-5 sm:px-6">
+    <section id="skills" ref={ref} className="relative py-24 md:py-28 px-5 sm:px-6 scroll-mt-20">
       <div className="max-w-4xl mx-auto">
         <Reveal>
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-4">

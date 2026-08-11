@@ -1,4 +1,5 @@
 import './globals.css'
+import ServiceWorkerRegister from '../components/ServiceWorkerRegister.jsx'
 
 export const metadata = {
   metadataBase: new URL('https://your-domain-here.com'),
@@ -6,6 +7,19 @@ export const metadata = {
   description:
     'Portfolio of Dharmendra Laxkar — PHP & Laravel developer building ERP, CRM, and full-stack web applications with Laravel, CakePHP, React, Next.js and Node.js.',
   authors: [{ name: 'Dharmendra Laxkar' }],
+  manifest: '/manifest.json',
+  icons: {
+    icon: [
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: '/icon-192.png',
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'D.Laxkar',
+  },
   openGraph: {
     type: 'website',
     title: 'Dharmendra Laxkar — PHP, Laravel & Full-Stack Developer',
@@ -22,6 +36,12 @@ export const metadata = {
   },
 }
 
+export const viewport = {
+  themeColor: '#05070D',
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -33,7 +53,10 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className="font-body antialiased">{children}</body>
+      <body className="font-body antialiased">
+        {children}
+        <ServiceWorkerRegister />
+      </body>
     </html>
   )
 }

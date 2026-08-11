@@ -1,12 +1,22 @@
 'use client'
 
-import { createContext, useContext, useMemo, useRef, useState, useCallback } from 'react'
+import { createContext, useContext, useEffect, useMemo, useRef, useState, useCallback } from 'react'
 
 const SoundContext = createContext(null)
+const STORAGE_KEY = 'laxkar-sound-enabled'
 
 export function SoundProvider({ children }) {
-  const [enabled, setEnabled] = useState(false)
+  const [enabled, setEnabled] = useState(true)
   const ctxRef = useRef(null)
+
+  // Restore the visitor's last choice — but default stays ON unless they
+  // explicitly turned it off before.
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY)
+      if (saved === 'false') setEnabled(false)
+    } catch {}
+  }, [])
 
   const getCtx = useCallback(() => {
     if (!ctxRef.current) {
@@ -16,6 +26,14 @@ export function SoundProvider({ children }) {
     if (ctxRef.current.state === 'suspended') ctxRef.current.resume()
     return ctxRef.current
   }, [])
+
+  // Unlock the AudioContext on the first user gesture (browser autoplay policy)
+  useEffect(() => {
+    const unlock = () => getCtx()
+    const events = ['pointerdown', 'keydown', 'touchstart']
+    events.forEach((ev) => window.addEventListener(ev, unlock, { once: true }))
+    return () => events.forEach((ev) => window.removeEventListener(ev, unlock))
+  }, [getCtx])
 
   const play = useCallback(
     (kind = 'hover') => {
@@ -48,6 +66,9 @@ export function SoundProvider({ children }) {
     setEnabled((e) => {
       const next = !e
       if (next) getCtx()
+      try {
+        localStorage.setItem(STORAGE_KEY, String(next))
+      } catch {}
       return next
     })
   }, [getCtx])

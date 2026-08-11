@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import Reveal from './Reveal.jsx'
 import { Send, Mail, Github, Linkedin, Instagram, Loader2, Phone, MapPin } from 'lucide-react'
 import useSpeakOnView from './useSpeakOnView.js'
+import { useVoice } from './VoiceProvider.jsx'
 
 // Sign up at https://formspree.io (free), create a form, and paste your
 // form ID below. Until you do, the form will show a friendly setup notice
@@ -21,7 +22,14 @@ const SOCIALS = [
 
 export default function Contact() {
   const [status, setStatus] = useState('idle')
-  const ref = useSpeakOnView("Section: Connect. Let's build something together.", 'contact')
+  const { hasSpoken } = useVoice()
+  const ref = useSpeakOnView(
+    () =>
+      hasSpoken('projects')
+        ? "You've already checked out my work, so if something caught your eye, let's talk about it."
+        : "If you have a project in mind, this is where our conversation can begin.",
+    'contact',
+  )
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -50,7 +58,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" ref={ref} className="relative py-24 md:py-28 px-5 sm:px-6">
+    <section id="contact" ref={ref} className="relative py-24 md:py-28 px-5 sm:px-6 scroll-mt-20">
       <div className="max-w-2xl mx-auto text-center">
         <Reveal>
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-4">
