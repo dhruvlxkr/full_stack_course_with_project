@@ -77,11 +77,11 @@ export default function Skills() {
   return (
     <section id="skills" ref={ref} className="relative py-24 md:py-28 px-5 sm:px-6 scroll-mt-20">
       <div className="max-w-4xl mx-auto">
-        <Reveal>
+        {/* <Reveal>
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-4">
             // 02 system.status
           </p>
-        </Reveal>
+        </Reveal> */}
         <Reveal delay={0.1}>
           <h2 className="font-display text-2xl sm:text-4xl font-bold text-[var(--text)] mb-10 sm:mb-14">
             Power levels

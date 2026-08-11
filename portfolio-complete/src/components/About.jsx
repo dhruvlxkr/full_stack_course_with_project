@@ -30,11 +30,11 @@ export default function About() {
   return (
     <section id="about" ref={ref} className="relative py-24 md:py-28 px-5 sm:px-6 scroll-mt-20">
       <div className="max-w-4xl mx-auto">
-        <Reveal>
+        {/* <Reveal>
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-4">
             // 01 profile.txt
           </p>
-        </Reveal>
+        </Reveal> */}
         <Reveal delay={0.1}>
           <h2 className="font-display text-2xl sm:text-4xl md:text-5xl font-bold text-[var(--text)] leading-tight">
             Building reliable systems
