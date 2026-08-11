@@ -15,7 +15,7 @@ const BOOT_LINES = [
   '> status: online',
 ]
 
-const PROFILE_PHOTO = 'https://dharmendralaxkar.vercel.app/img/dharmendra%20laxkar1.png'
+const PROFILE_PHOTO = '/pic-white.jpg'
 
 export default function Hero({ theme }) {
   const ref = useRef(null)
@@ -126,7 +126,7 @@ export default function Hero({ theme }) {
                       Contact
                     </a>
                     <a
-                      href="/resume.pdf"
+                      href="/Dharmendra Laxkar.pdf"
                       download
                       onMouseEnter={() => play('hover')}
                       onClick={() => play('click')}

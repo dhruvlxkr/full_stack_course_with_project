@@ -60,7 +60,7 @@ Deploys directly to Vercel with zero config (`vercel deploy`).
 3. Until then, the form shows a "not connected yet" message instead of failing silently.
 
 **Resume download**
-- `public/resume.pdf` is currently a placeholder. Replace it with your real CV (same filename) — the download button in the hero picks it up automatically. I couldn't pull your real resume PDF automatically because this sandbox can't reach `vercel.app`; grab it from `https://dharmendralaxkar.vercel.app/resume/Dharmendra%20Laxkar.pdf` and drop it in.
+- `public/Dharmendra Laxkar.pdf` is currently a placeholder. Replace it with your real CV (same filename) — the download button in the hero picks it up automatically. I couldn't pull your real resume PDF automatically because this sandbox can't reach `vercel.app`; grab it from `https://dharmendralaxkar.vercel.app/resume/Dharmendra%20Laxkar.pdf` and drop it in.
 
 **Photo**
 - The hero and floating avatar currently load your photo directly from your live site's URL. If you'd rather host it locally, download it into `public/profile.jpg` and swap the `PROFILE_PHOTO` constant in `src/components/Hero.jsx` and `src/app/page.jsx` to `/profile.jpg`.

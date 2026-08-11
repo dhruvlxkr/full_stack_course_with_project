@@ -7,10 +7,7 @@ import { Send, Mail, Github, Linkedin, Instagram, Loader2, Phone, MapPin } from 
 import useSpeakOnView from './useSpeakOnView.js'
 import { useVoice } from './VoiceProvider.jsx'
 
-// Sign up at https://formspree.io (free), create a form, and paste your
-// form ID below. Until you do, the form will show a friendly setup notice
-// instead of actually submitting anywhere.
-const FORMSPREE_ID = 'YOUR_FORM_ID'
+const FORMSPREE_ID = 'mjybwppg'
 const FORM_ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`
 
 const SOCIALS = [
@@ -23,6 +20,7 @@ const SOCIALS = [
 export default function Contact() {
   const [status, setStatus] = useState('idle')
   const { hasSpoken } = useVoice()
+
   const ref = useSpeakOnView(
     () =>
       hasSpoken('projects')
@@ -33,19 +31,21 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (FORMSPREE_ID === 'YOUR_FORM_ID') {
-      setStatus('error')
-      return
-    }
+
     setStatus('sending')
+
     const form = e.target
     const data = new FormData(form)
+
     try {
       const res = await fetch(FORM_ENDPOINT, {
         method: 'POST',
         body: data,
-        headers: { Accept: 'application/json' },
+        headers: {
+          Accept: 'application/json',
+        },
       })
+
       if (res.ok) {
         setStatus('sent')
         form.reset()
@@ -58,26 +58,31 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" ref={ref} className="relative py-24 md:py-28 px-5 sm:px-6 scroll-mt-20">
+    <section
+      id="contact"
+      ref={ref}
+      className="relative py-24 md:py-28 px-5 sm:px-6 scroll-mt-20"
+    >
       <div className="max-w-2xl mx-auto text-center">
-        {/* <Reveal>
-          <p className="font-mono text-xs tracking-[0.3em] uppercase text-[var(--accent)] mb-4">
-            // 05 connect.sh
-          </p>
-        </Reveal> */}
+
         <Reveal delay={0.1}>
           <h2 className="font-display text-2xl sm:text-4xl font-bold text-[var(--text)] mb-4">
             Let's build something
           </h2>
         </Reveal>
+
         <Reveal delay={0.15}>
-          <p className="text-[var(--muted)] mb-4 text-sm sm:text-base">Have a project in mind? Send a signal.</p>
+          <p className="text-[var(--muted)] mb-4 text-sm sm:text-base">
+            Have a project in mind? Send a signal.
+          </p>
         </Reveal>
+
         <Reveal delay={0.18}>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-10 font-mono text-xs text-[var(--muted)]">
             <span className="flex items-center gap-1.5">
               <Phone size={13} /> 6378767914
             </span>
+
             <span className="flex items-center gap-1.5">
               <MapPin size={13} /> Jhamar Kotra, Udaipur
             </span>
@@ -94,8 +99,12 @@ export default function Contact() {
           >
             {status !== 'sent' && (
               <form onSubmit={handleSubmit} className="space-y-5">
+
                 <div>
-                  <label className="font-mono text-[11px] uppercase tracking-widest text-[var(--muted)]">name</label>
+                  <label className="font-mono text-[11px] uppercase tracking-widest text-[var(--muted)]">
+                    name
+                  </label>
+
                   <input
                     required
                     name="name"
@@ -104,8 +113,12 @@ export default function Contact() {
                     placeholder="your name"
                   />
                 </div>
+
                 <div>
-                  <label className="font-mono text-[11px] uppercase tracking-widest text-[var(--muted)]">email</label>
+                  <label className="font-mono text-[11px] uppercase tracking-widest text-[var(--muted)]">
+                    email
+                  </label>
+
                   <input
                     required
                     name="email"
@@ -114,8 +127,12 @@ export default function Contact() {
                     placeholder="you@domain.com"
                   />
                 </div>
+
                 <div>
-                  <label className="font-mono text-[11px] uppercase tracking-widest text-[var(--muted)]">message</label>
+                  <label className="font-mono text-[11px] uppercase tracking-widest text-[var(--muted)]">
+                    message
+                  </label>
+
                   <textarea
                     required
                     name="message"
@@ -124,6 +141,7 @@ export default function Contact() {
                     placeholder="tell me about the project..."
                   />
                 </div>
+
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -133,27 +151,35 @@ export default function Contact() {
                 >
                   {status === 'sending' ? (
                     <>
-                      <Loader2 size={14} className="animate-spin" /> sending...
+                      <Loader2 size={14} className="animate-spin" />
+                      sending...
                     </>
                   ) : (
                     <>
-                      Send transmission <Send size={14} />
+                      Send transmission
+                      <Send size={14} />
                     </>
                   )}
                 </motion.button>
+
                 {status === 'error' && (
-                  <p className="font-mono text-xs text-center" style={{ color: '#FF6B6B' }}>
-                    {FORMSPREE_ID === 'YOUR_FORM_ID'
-                      ? 'Form not connected yet — add your Formspree ID in Contact.jsx.'
-                      : 'Something went wrong. Please try again or email directly.'}
+                  <p
+                    className="font-mono text-xs text-center"
+                    style={{ color: '#FF6B6B' }}
+                  >
+                    Something went wrong. Please try again or email directly.
                   </p>
                 )}
+
               </form>
             )}
+
             {status === 'sent' && (
               <div className="text-center py-8 font-mono text-sm text-[var(--accent)]">
                 <p>&gt; transmission received.</p>
-                <p className="text-[var(--muted)] mt-1">I'll respond within 24 hours.</p>
+                <p className="text-[var(--muted)] mt-1">
+                  I'll respond within 24 hours.
+                </p>
               </div>
             )}
           </div>
@@ -175,6 +201,7 @@ export default function Contact() {
             ))}
           </div>
         </Reveal>
+
       </div>
     </section>
   )

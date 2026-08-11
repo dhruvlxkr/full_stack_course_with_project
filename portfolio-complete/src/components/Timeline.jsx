@@ -6,7 +6,7 @@ import useSpeakOnView from './useSpeakOnView.js'
 const LOG = [
   {
     time: 'Sep 2025 — Present',
-    title: 'Full-Stack Developer',
+    title: 'PHP Laravel Developer',
     org: 'BeYoung Folk Private Limited',
     desc: 'Handling and debugging ERP and CRM modules — keeping core business workflows stable, tracing issues across the stack, and shipping fixes and improvements to production systems.',
   },
