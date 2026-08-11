@@ -11,9 +11,9 @@ const FORMSPREE_ID = 'mjybwppg'
 const FORM_ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`
 
 const SOCIALS = [
-  { icon: Github, href: 'https://github.com/dharmendralxkr', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://www.linkedin.com/in/dharmendralxkr/', label: 'LinkedIn' },
-  { icon: Instagram, href: 'https://www.instagram.com/dharmendralxkr/', label: 'Instagram' },
+  { icon: Github, href: 'https://github.com/dhruvlxkr', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://in.linkedin.com/in/dharmendra-laxkar-2932a5167', label: 'LinkedIn' },
+  { icon: Instagram, href: 'https://www.instagram.com/heart_hacked_420/', label: 'Instagram' },
   { icon: Mail, href: 'mailto:dharmendralxkr@gmail.com', label: 'Email' },
 ]
 
@@ -24,8 +24,14 @@ export default function Contact() {
   const ref = useSpeakOnView(
     () =>
       hasSpoken('projects')
-        ? "You've already checked out my work, so if something caught your eye, let's talk about it."
-        : "If you have a project in mind, this is where our conversation can begin.",
+        ? {
+            en: 'Contact and Collaboration: You have checked out my projects and experience! Whether you require custom ERP or CRM development, PHP Laravel backends, or full-stack React applications, feel free to fill out the contact form below or reach me directly by phone or email.',
+            hi: 'संपर्क और सहयोग: आपने मेरा प्रोजेक्ट्स और अनुभव देख लिया है! यदि आपको कस्टम ERP/CRM पोर्टल, PHP लारावेल बैकएंड, या फुल स्टैक वेब एप्लीकेशन बनवाना है, तो नीचे दिए गए फॉर्म को भरकर या सीधे कॉल और ईमेल से मुझसे संपर्क करें।',
+          }
+        : {
+            en: 'Contact and Collaboration: If you have a web development project in mind or need a dedicated full-stack developer, fill out the form below or contact me directly via phone or email to start our conversation.',
+            hi: 'संपर्क और सहयोग: यदि आपके मन में कोई वेब डेवलपमेंट प्रोजेक्ट है या आपको एक फुल स्टैक डेवलपर की आवश्यकता है, तो नीचे दिए गए फॉर्म को भरें या सीधे कॉल और ईमेल करके मुझसे बात करें।',
+          },
     'contact',
   )
 

@@ -20,7 +20,10 @@ const LOG = [
 
 export default function Timeline() {
   const ref = useSpeakOnView(
-    "Here's where I've actually worked, and what I've been doing there.",
+    {
+      en: 'Work Experience Timeline: Currently, I serve as a PHP Laravel Developer at BeYoung Folk Private Limited, maintaining and enhancing core ERP and CRM modules for enterprise operations. Previously, as Associate Developer at Dacnis Tech Solution, I designed blood donation portals, POS invoicing modules for pharmacy chains, and custom booking websites.',
+      hi: 'कार्य अनुभव टाइमलाइन: वर्तमान में मैं बी-यंग फोक प्राइवेट लिमिटेड में PHP लारावेल डेवलपर के रूप में कार्यरत हूँ, जहाँ मैं ERP और CRM मॉड्यूल्स का विकास और रखरखाव करता हूँ। इससे पहले डाक्निस टेक सॉल्यूशन में मैंने POS बिलिंग सिस्टम, ब्लड डोनेशन पोर्टल और कस्टम ई-कॉमर्स पोर्टल्स विकसित किए।',
+    },
     'timeline',
   )
   return (

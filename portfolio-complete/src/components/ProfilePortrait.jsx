@@ -35,7 +35,7 @@ export default function ProfilePortrait({ src, sectionRef }) {
   return (
     <motion.div
       style={{ y: scrollY, scale: scrollScale, opacity: scrollOpacity }}
-      className="relative mx-auto w-full max-w-[300px] sm:max-w-[360px] md:max-w-[380px]"
+      className="relative mx-auto w-full max-w-[250px] sm:max-w-[300px] md:max-w-[320px]"
     >
       <div style={{ perspective: 1200 }}>
         <motion.div

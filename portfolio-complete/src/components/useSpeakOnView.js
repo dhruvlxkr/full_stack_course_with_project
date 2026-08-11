@@ -5,9 +5,8 @@ import { useVoice } from './VoiceProvider.jsx'
 
 /**
  * Attach to any section: speaks `text` once, the first time the section is
- * at least ~60% visible — but only while the AI voice is turned on.
- * `text` can be a string, or a function returning a string (evaluated at
- * trigger time, so it can reference what's already been narrated elsewhere).
+ * visible — but only while the AI voice is turned on.
+ * `text` can be a string, object { en, hi }, or a function returning one of those.
  */
 export default function useSpeakOnView(text, key) {
   const ref = useRef(null)
@@ -17,11 +16,6 @@ export default function useSpeakOnView(text, key) {
     const el = ref.current
     if (!el || !enabled) return
 
-    const isMobile = window.matchMedia('(max-width: 640px)').matches
-    // Tall, narrow mobile viewports make 60% trickier to hit while scrolling
-    // fast, so we ease the bar slightly there.
-    const threshold = isMobile ? 0.4 : 0.6
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -29,7 +23,7 @@ export default function useSpeakOnView(text, key) {
           speak(line, { key })
         }
       },
-      { threshold },
+      { threshold: 0.15, rootMargin: '0px 0px -10% 0px' },
     )
     observer.observe(el)
     return () => observer.disconnect()
@@ -37,3 +31,5 @@ export default function useSpeakOnView(text, key) {
 
   return ref
 }
+
+

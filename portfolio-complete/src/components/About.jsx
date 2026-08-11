@@ -14,7 +14,10 @@ const STATS = [
 
 export default function About() {
   const ref = useSpeakOnView(
-    "Now that you've met me, let me quickly tell you what I actually build.",
+    {
+      en: 'About Dharmendra Laxkar: I specialize in engineering robust web systems from backend database architecture to interactive frontend interfaces. Over 2.5 years, I have successfully delivered 15 plus live projects, including custom ERPs, CRM platforms, pharmacy inventory modules, and e-commerce portals. My technical core revolves around PHP, Laravel, MySQL, React, Next.js, and Node.js with emphasis on clean code, system performance, and security.',
+      hi: 'धर्मेंद्र लश्कर के बारे में: मैं डेटाबेस से लेकर फ्रंटएंड यूजर इंटरफेस तक मजबूत वेब सिस्टम बनाता हूँ। 2.5 से अधिक वर्षों के अनुभव में मैंने 15 से ज़्यादा लाइव प्रोजेक्ट्स सफलतापूर्वक डिलीवर किए हैं, जिनमें ERP, CRM, फार्मेसी POS सिस्टम और ई-कॉमर्स पोर्टल शामिल हैं। मेरी मुख्य तकनीकी ताक़त PHP, लारावेल, मायएसक्यूएल, रिएक्ट, और नेक्स्ट जेएस में है।',
+    },
     'about',
   )
   const { speak } = useVoice()

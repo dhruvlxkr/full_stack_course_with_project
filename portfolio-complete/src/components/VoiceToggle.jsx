@@ -7,7 +7,7 @@ import { useSound } from './SoundProvider.jsx'
 import VoiceWaveform from './VoiceWaveform.jsx'
 
 export default function VoiceToggle() {
-  const { enabled, speaking, toggle, speak, replay } = useVoice()
+  const { enabled, lang, toggleLang, speaking, toggle, speak, replay } = useVoice()
   const { play } = useSound()
 
   const handleClick = () => {
@@ -16,12 +16,31 @@ export default function VoiceToggle() {
     toggle()
     if (next) {
       setTimeout(() => {
-        speak('Voice guide online. I will narrate each section as you scroll.', {
-          key: 'voice-intro',
-          force: true,
-        })
+        speak(
+          {
+            en: 'Voice guide online. I will narrate each section as you scroll.',
+            hi: 'वॉइस गाइड ऑनलाइन है। मैं स्क्रॉल करते ही हर सेक्शन बोलकर सुनाऊँगा।',
+          },
+          {
+            key: 'voice-intro',
+            force: true,
+          },
+        )
       }, 150)
     }
+  }
+
+  const handleLangToggle = (e) => {
+    e.stopPropagation()
+    play('click')
+    toggleLang()
+    const nextLang = lang === 'en' ? 'hi' : 'en'
+    speak(
+      nextLang === 'hi'
+        ? 'हिंदी भाषा चुनी गई है।'
+        : 'English language selected.',
+      { key: `lang-switched-${Date.now()}`, force: true },
+    )
   }
 
   const handleReplay = (e) => {
@@ -50,17 +69,29 @@ export default function VoiceToggle() {
       </button>
 
       {enabled && (
-        <button
-          onClick={handleReplay}
-          className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors hidden sm:inline-flex"
-          aria-label="Replay narration"
-          title="Replay"
-        >
-          <RotateCcw size={14} />
-        </button>
+        <>
+          <button
+            onClick={handleLangToggle}
+            className="font-mono text-[11px] sm:text-xs uppercase font-bold text-[var(--muted)] hover:text-[var(--accent)] transition-colors tracking-wider px-1"
+            aria-label={`Switch voice language (currently ${lang.toUpperCase()})`}
+            title={`Voice language: ${lang === 'en' ? 'English' : 'Hindi'}. Click to switch.`}
+          >
+            {lang === 'en' ? 'EN' : 'HI'}
+          </button>
+
+          <button
+            onClick={handleReplay}
+            className="text-[var(--muted)] hover:text-[var(--accent)] transition-colors hidden sm:inline-flex"
+            aria-label="Replay narration"
+            title="Replay"
+          >
+            <RotateCcw size={14} />
+          </button>
+        </>
       )}
 
       <VoiceWaveform />
     </div>
   )
 }
+

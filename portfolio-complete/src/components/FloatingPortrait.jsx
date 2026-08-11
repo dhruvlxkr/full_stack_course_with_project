@@ -8,9 +8,9 @@ import { useSound } from './SoundProvider.jsx'
 import { useVoice } from './VoiceProvider.jsx'
 
 const SOCIALS = [
-  { icon: Linkedin, href: 'https://www.linkedin.com/in/dharmendralxkr/', label: 'LinkedIn', angle: 175 },
-  { icon: Github, href: 'https://github.com/dharmendralxkr', label: 'GitHub', angle: 152 },
-  { icon: Instagram, href: 'https://www.instagram.com/dharmendralxkr/', label: 'Instagram', angle: 128 },
+  { icon: Linkedin, href: 'https://in.linkedin.com/in/dharmendra-laxkar-2932a5167', label: 'LinkedIn', angle: 175 },
+  { icon: Github, href: 'https://github.com/dhruvlxkr', label: 'GitHub', angle: 152 },
+  { icon: Instagram, href: 'https://www.instagram.com/heart_hacked_420/', label: 'Instagram', angle: 128 },
   { icon: Mail, href: 'mailto:dharmendralxkr@gmail.com', label: 'Email', angle: 105 },
 ]
 

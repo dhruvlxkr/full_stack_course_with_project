@@ -1,9 +1,10 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Starfield from './Starfield.jsx'
 import TypingText from './TypingText.jsx'
+import RotatingTypingText from './RotatingTypingText.jsx'
 import ProfilePortrait from './ProfilePortrait.jsx'
 import { ChevronDown, Download } from 'lucide-react'
 import { useSound } from './SoundProvider.jsx'
@@ -23,6 +24,20 @@ export default function Hero({ theme }) {
   const [nameDone, setNameDone] = useState(false)
   const { play } = useSound()
   const { speak } = useVoice()
+
+  useEffect(() => {
+    // Speak immediately as soon as AI/website loads or refreshes
+    const timer = setTimeout(() => {
+      speak(
+        {
+          en: 'Hello and welcome to my portfolio! I am Dharmendra Laxkar, a Senior PHP, Laravel, and Full Stack Developer with over 2.5 years of experience building scalable web applications, enterprise ERP and CRM systems, and custom digital solutions.',
+          hi: 'नमस्ते और मेरे पोर्टफोलियो में आपका स्वागत है! मैं धर्मेंद्र लश्कर हूँ, 2.5 से अधिक वर्षों के अनुभव के साथ एक सीनियर PHP, लारावेल और फुल स्टैक डेवलपर। मैं एंटरप्राइज ERP, CRM सिस्टम और स्केलेबल वेब एप्लीकेशन बनाता हूँ।',
+        },
+        { key: 'hero-welcome', force: true },
+      )
+    }, 100)
+    return () => clearTimeout(timer)
+  }, [speak])
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -49,8 +64,8 @@ export default function Hero({ theme }) {
         className="relative z-10 w-full max-w-6xl px-5 sm:px-6 grid md:grid-cols-[1.15fr_0.85fr] gap-10 md:gap-10 items-center"
       >
         <motion.div style={{ y, scale }} className="text-center md:text-left order-2 md:order-1">
-          {/* Always in the DOM for SEO/accessibility — the animated version below is purely decorative */}
-          <h1 className="sr-only">Dharmendra Laxkar — PHP, Laravel &amp; Full-Stack Developer</h1>
+          {/* Always in the DOM for SEO/accessibility */}
+          <h1 className="sr-only">Hello, I am Dharmendra Laxkar — PHP, Laravel &amp; Full-Stack Developer</h1>
           <p className="sr-only">ERP &amp; CRM Systems · React · Next.js · Node.js</p>
 
           <div className="font-mono text-[11px] sm:text-sm text-[var(--accent)] space-y-1 mb-6 h-16">
@@ -68,6 +83,9 @@ export default function Hero({ theme }) {
 
           {bootDone && (
             <>
+              <h5 className="font-mono text-sm sm:text-base tracking-[0.25em] uppercase text-[var(--accent)] mb-3 font-semibold">
+                Hello, I am
+              </h5>
               <div
                 aria-hidden="true"
                 className="font-display font-black uppercase leading-[0.95] text-[clamp(2.4rem,11vw,4.8rem)] md:text-[clamp(2.8rem,4.4vw,5.2rem)] text-[var(--text)] break-words"
@@ -80,30 +98,27 @@ export default function Hero({ theme }) {
                     speed={70}
                     startDelay={1400}
                     cursorClassName="border-[var(--accent)]"
-                    onDone={() => {
-                      setNameDone(true)
-                      const hour = new Date().getHours()
-                      const timeLine =
-                        hour < 5
-                          ? "Still exploring portfolios this late? Welcome."
-                          : hour < 12
-                            ? 'Good morning, and welcome.'
-                            : hour < 18
-                              ? 'Welcome.'
-                              : 'Good evening, and welcome.'
-                      speak(
-                        `${timeLine} I'm Dharmendra Laxkar, a P H P, Laravel, and full stack developer.`,
-                        { key: 'hero-welcome' },
-                      )
-                    }}
+                    onDone={() => setNameDone(true)}
                   />
                 </span>
               </div>
 
               {nameDone && (
                 <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-                  <p className="mt-5 sm:mt-6 font-mono text-xs sm:text-base tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[var(--muted)]">
-                    PHP, Laravel &amp; Full-Stack Developer
+                  <p className="mt-5 sm:mt-6 font-mono text-xs sm:text-base tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[var(--accent)] min-h-[1.5em]">
+                    <RotatingTypingText
+                      words={[
+                        'PHP Developer',
+                        'Laravel Developer',
+                        'Full Stack Developer',
+                        'WordPress Developer',
+                        'Backend Architect',
+                      ]}
+                      typeSpeed={70}
+                      deleteSpeed={40}
+                      delayBetweenWords={1800}
+                      cursorClassName="border-[var(--accent)]"
+                    />
                   </p>
                   <p className="mt-2 font-mono text-[11px] sm:text-sm tracking-widest uppercase text-[var(--muted)] opacity-70">
                     ERP &amp; CRM Systems · React · Next.js · Node.js
