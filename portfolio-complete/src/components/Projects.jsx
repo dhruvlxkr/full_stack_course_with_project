@@ -38,6 +38,20 @@ const PROJECTS = [
     url: 'https://aadinathschool.in/',
   },
   {
+    name: 'NS Jewellers — Ledger',
+    category: 'PHP',
+    tags: ['PHP', 'MySQL', 'Bootstrap'],
+    desc: 'Inventory and ledger tracking system for a jewellery business.',
+    url: 'https://nsjewellers1990.com/Ledger/',
+  },
+  {
+    name: 'NS Jewellers — Billing',
+    category: 'PHP',
+    tags: ['PHP', 'MySQL', 'Bootstrap'],
+    desc: 'A companion billing portal for point-of-sale invoicing.',
+    url: 'https://nsjewellers1990.com/Billing/',
+  },
+  {
     name: 'Home Town Resort',
     category: 'WordPress',
     tags: ['WordPress'],
@@ -139,8 +153,8 @@ export default function Projects() {
 
   const ref = useSpeakOnView(
     {
-      en: 'Selected Real-World Projects: Featured builds under PHP include Total Care Pharmacy ERP and POS modules, Shubh Vivah dress rental portal, and School Management ERP. Featured WordPress builds include Home Town Resort hotel booking portal and Kargitech E-commerce storefront.',
-      hi: 'चुनिंदा लाइव प्रोजेक्ट्स: PHP के तहत मुख्य रूप से टोटल केयर फार्मेसी ERP और POS बिलिंग सिस्टम, शुभ विवाह ड्रेस रेंटल पोर्टल, तथा स्कूल मैनेजमेंट ERP शामिल हैं। वर्डप्रेस के तहत होम टाउन रिसॉर्ट होटल बुकिंग और कारगीटेक ई-कॉमर्स पोर्टल शामिल हैं।',
+      en: 'Selected Real-World Projects: Featured builds under PHP include Total Care Pharmacy ERP and POS modules, Shubh Vivah dress rental portal, School Management ERP, NS Jewellers ledger, and NS Jewellers billing portals. Featured WordPress builds include Home Town Resort hotel booking portal and Kargitech E-commerce storefront.',
+      hi: 'चुनिंदा लाइव प्रोजेक्ट्स: PHP के तहत मुख्य रूप से टोटल केयर फार्मेसी ERP और POS बिलिंग सिस्टम, शुभ विवाह ड्रेस रेंटल पोर्टल, स्कूल मैनेजमेंट ERP, NS ज्वेलर्स लेजर और बिलिंग एप्लीकेशन शामिल हैं। वर्डप्रेस के तहत होम टाउन रिसॉर्ट और कारगीटेक पोर्टल शामिल हैं।',
     },
     'projects',
   )
